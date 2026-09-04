@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Agricom-io/ruralcast-ngsi-schema/main/schema/PriceObservation.json",
+  "title": "PriceObservation",
+  "description": "One observed market price for a product/market/date. NGSI-LD-compatible draft v0.1.",
+  "type": "object",
+  "required": ["id", "type", "product", "observedAt", "price", "unit", "source", "sourceDate", "sourceFrequency"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^urn:ngsi-ld:PriceObservation:.+"},
+    "type": {"const": "PriceObservation"},
+    "product": {"type": "string", "minLength": 1},
+    "variety": {"type": "string"},
+    "marketOrSegment": {"type": "string"},
+    "region": {"type": "string"},
+    "observedAt": {"type": "string", "format": "date"},
+    "price": {"type": "number"},
+    "unit": {"type": "string", "examples": ["EUR/100kg", "EUR/kg"]},
+    "source": {"type": "string", "description": "Named public source, e.g. 'SURS 0410811S', 'ARSKTRP weekly fruit report'"},
+    "sourceDate": {"type": "string", "format": "date", "description": "Date the source published this value"},
+    "sourceFrequency": {"type": "string", "enum": ["weekly", "monthly", "quarterly", "annual"], "description": "True source frequency — never upgraded by interpolation"},
+    "licence": {"type": "string"}
+  },
+  "additionalProperties": false
+}
