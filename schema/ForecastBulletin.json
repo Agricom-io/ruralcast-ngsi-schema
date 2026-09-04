@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Agricom-io/ruralcast-ngsi-schema/main/schema/ForecastBulletin.json",
+  "title": "ForecastBulletin",
+  "description": "One published weekly bulletin: the set of signals it carried, each with refresh status. NGSI-LD-compatible draft v0.1.",
+  "type": "object",
+  "required": ["id", "type", "publishedAt", "language", "signals"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^urn:ngsi-ld:ForecastBulletin:.+"},
+    "type": {"const": "ForecastBulletin"},
+    "publishedAt": {"type": "string", "format": "date"},
+    "language": {"type": "string", "examples": ["sl", "hu"]},
+    "region": {"type": "string"},
+    "signals": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["forecastRef", "refreshStatus"],
+        "properties": {
+          "forecastRef": {"type": "string", "description": "id of a MarketForecast"},
+          "refreshStatus": {"type": "string", "enum": ["updated", "unchanged-source-not-updated", "no-update-notice"], "description": "Stale or failed feeds publish a labelled no-update notice, never a fabricated forecast"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
