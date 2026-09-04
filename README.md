@@ -1,5 +1,7 @@
 # ruralcast-ngsi-schema
 
+[![tests](https://github.com/Agricom-io/ruralcast-ngsi-schema/actions/workflows/ci.yml/badge.svg)](https://github.com/Agricom-io/ruralcast-ngsi-schema/actions/workflows/ci.yml)
+
 NGSI-LD–compatible data models for **RURALCAST** — community-governed demand-and-price
 market intelligence for rural regions (SMART ERA 2nd Open Call, Followers Micro-Pilot;
 Goričko, Slovenia).
