@@ -1,0 +1,30 @@
+{
+  "observation": {
+    "id": "urn:ngsi-ld:PriceObservation:si-apples-2027-04-12-arsktrp",
+    "type": "PriceObservation",
+    "product": "Apples", "variety": "Idared", "marketOrSegment": "wholesale",
+    "region": "SI", "observedAt": "2027-04-12",
+    "price": 78.5, "unit": "EUR/100kg",
+    "source": "ARSKTRP weekly fruit report", "sourceDate": "2027-04-14",
+    "sourceFrequency": "weekly", "licence": "public-sector information"
+  },
+  "forecast": {
+    "id": "urn:ngsi-ld:MarketForecast:si-apples-2027-W17-v1",
+    "type": "MarketForecast",
+    "product": "Apples", "region": "Goričko (SI)",
+    "issuedAt": "2027-04-16", "targetPeriod": "2027-W17",
+    "horizon": "sell-timing-2w",
+    "pointValue": 81.0, "intervalLower": 72.0, "intervalUpper": 90.5,
+    "intervalCoverageTarget": 0.8, "unit": "EUR/100kg",
+    "methodVersion": "ruralcast-engine-2027.04",
+    "sourceRefs": ["urn:ngsi-ld:PriceObservation:si-apples-2027-04-12-arsktrp"]
+  },
+  "bulletin": {
+    "id": "urn:ngsi-ld:ForecastBulletin:goricko-2027-W16",
+    "type": "ForecastBulletin",
+    "publishedAt": "2027-04-16", "language": "sl", "region": "Goričko (SI)",
+    "signals": [
+      {"forecastRef": "urn:ngsi-ld:MarketForecast:si-apples-2027-W17-v1", "refreshStatus": "updated"}
+    ]
+  }
+}
